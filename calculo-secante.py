@@ -1,8 +1,11 @@
-﻿def funcao(x, func):
+#recebe valor x e funcao (ex.: x³+2x²+1) e retorna o valor de f(x)
+def funcao(x, func):
     func = func.replace("x",x)
     result = eval(func)
     return result;
 
+#calcula raiz de função utilizando o método de secante
+#recebe x0 e x1 como valores iniciais, TOL como critério de parada, N como número de repetições e a função que será calculada.
 def secante(x0, x1, TOL, N, func):
     x2 = x1 - (x1 - x0)*funcao(str(x1), func)/(funcao(str(x1), func) - funcao(str(x0), func))
     i = 1
@@ -20,4 +23,3 @@ def secante(x0, x1, TOL, N, func):
         print(x2)
         
 secante(-1.8, -1.2, .1, 20, "x**4-3*x**3+3")
-#x**4–3*x**3+3
